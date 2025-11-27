@@ -386,16 +386,47 @@ body {
 
 /**/
 
+/* SINEMATIK BACKGROUND DENGAN OVERLAY GELAP */
 body {
-    /* (Kode background image Anda di sini) */
-    background-image: url('../images/bg.png');
+    /* Font baru diterapkan */
+    font-family: 'Inter', sans-serif; 
+
+    /* Pengaturan Background */
+    background-image: url('../images/bg.webp'); /* Pastikan path gambar Anda benar */
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
-    background-color: #f0f0f0; 
+    background-attachment: fixed; /* Membuat gambar tetap saat scroll */
     
-    /* Penting: Pastikan body memiliki posisi relatif */
+    /* Warna fallback untuk browser yang tidak mendukung gambar */
+    background-color: #121212; 
+    
+    /* PENTING: Untuk memastikan Body mengisi seluruh tinggi viewport */
+    min-height: 100vh; /* Background minimal setinggi 100% viewport height */
+    
     position: relative; 
     z-index: 1; /* Agar elemen di dalamnya (tombol, teks) berada di atas overlay */
 }
 
+/* OVERLAY GELAP (untuk efek Sinematik) */
+body::before {
+    content: "";
+    position: fixed; /* Ganti dari absolute menjadi fixed agar overlay ikut mengisi 100vh */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Mengisi 100% dari viewport saat fixed */
+    
+    /* Ganti nilai alpha (0.6) untuk mengatur kegelapan. */
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: -1; /* Tempatkan di bawah konten, tetapi di atas background-image */
+}
+
+/* Kustom: Mengubah Warna Tautan Footer menjadi Putih dengan !important */
+footer a {
+    color: #ffffff !important; /* Tambahkan !important untuk menimpa aturan tema gelap */
+}
+
+/* Kustom: Mengubah Warna Tautan Footer saat di-hover */
+footer a:hover {
+    color: #dddddd !important; /* Tambahkan !important juga untuk warna hover */
+}
