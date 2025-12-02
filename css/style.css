@@ -392,7 +392,7 @@ body {
     font-family: 'Inter', sans-serif; 
 
     /* Pengaturan Background */
-    background-image: url('../images/bg.webp'); /* Pastikan path gambar Anda benar */
+    background-image: url('../images/bg.jpg'); /* Pastikan path gambar Anda benar */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed; /* Membuat gambar tetap saat scroll */
